@@ -10,3 +10,6 @@
 [submodule "documents/articles"]
 	path = documents/articles
 	url = git@github.com:portomorto/articles.git
+[submodule "documents/books"]
+	path = documents/books
+	url = git@github.com:portomorto/books.git
