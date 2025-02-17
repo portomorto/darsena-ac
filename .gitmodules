@@ -7,3 +7,6 @@
 [submodule "arsenale/adui"]
 	path = arsenale/adui
 	url = git@github.com:Metabolismo/adui.git
+[submodule "documents/articles"]
+	path = documents/articles
+	url = git@github.com:portomorto/articles.git
