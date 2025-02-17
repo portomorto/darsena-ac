@@ -40,13 +40,13 @@ cat ~/.ssh/id_ed25519.pub
 Per clonare il repository con tutti i suoi submoduli:
 
 ```bash
-git clone --recursive git@github.com:grammaton/darsena-XYZ.git # dove XYZ è il nome del tuo repositorio dopo il clone del template (es XYZ=iniziali)
-cd darsena
+git clone --recursive git@github.com:portomorto/darsena-ac.git
+cd darsena-ac
 ```
 
 Se hai già clonato il repository senza i submoduli:
 ```bash
-cd darsena
+cd darsena-ac
 git submodule init
 git submodule update
 ```
@@ -256,4 +256,4 @@ Per problemi o domande, aprire una issue su GitHub: [grammaton/darsena/issues](h
 Per creare una nuova nave dell'arsenale [parti da qui], poi aggiungi il nuovo
 elemento come `submodule` in `arsenale`.
 
-[parti da qui]: https://github.com/grammaton/bucintoro/generate
+[parti da qui]: https://github.com/portomorto/bucintoro/generate
