@@ -1,0 +1,106 @@
+theme: just-the-docs
+title: Porto Morto
+description: cadere sette volte, rialzarsi otto
+baseurl: "/portomorto" # the subpath of your site, e.g. /blog
+url: "grammaton.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+repository: grammaton/darsena # for github-metadata
+
+aux_links:
+  FAUST: http://127.0.0.1:8000/dist/
+  LEAP: https://l-e-a-p.github.io
+
+heading_anchors: true
+
+math: mathjax
+
+# For copy button on code
+enable_copy_code_button: true
+
+exclude:
+  - _latex_temp
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - pdf
+
+plugins:
+  - jekyll-scholar
+  - jekyll-github-metadata
+
+sass:
+  sass_dir: _sass
+  
+callouts:
+  glossario:
+    title: Glossario
+    color: purple
+
+footer_content: 'Giuseppe Silvi'
+
+# Footer last edited timestamp
+last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
+last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
+
+liquid:
+  error_mode: strict
+  strict_filters: true
+
+scholar:
+  style: apa
+  locale: it
+
+  sort_by: none
+  order: ascending
+
+  source: ./sottomarini/dibi-bib/
+  # bibliography: nono-luigi.bib
+  bibliography_template: "{{reference}}"
+
+  replace_strings: true
+  join_strings:    true
+
+  details_dir:    bibliography
+  details_layout: bibtex.html
+  details_link:   Details
+
+  query: "@*"
+
+pdf_naming:
+  pattern: ':year-:author_surname-:category-:title'
+  sanitize: true
+
+pdf_generation:
+  enabled: true
+  projects:
+    - name: metafisica
+      title: "Metafisica del Suono"
+    - name: pto
+      title: "Pensare Tetraedrico Oggi"
+
+collections:
+  cartografie:
+    output: true
+    permalink: /:collection/:path/
+  arsenale:
+    output: true
+    permalink: /:collection/:path/
+  sottomarini:
+    output: true
+    permalink: /:collection/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "cartografie"
+    values:
+      layout: "cartografia"
+  - scope:
+      path: ""
+      type: "arsenale"
+    values:
+      layout: "arsenale"
+  - scope:
+      path: ""
+      type: "sottomarini"
+    values:
+      layout: "sottomarino"

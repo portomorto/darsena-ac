@@ -1,0 +1,3 @@
+[submodule "sottomarini/dibi-bib"]
+	path = sottomarini/dibi-bib
+	url = git@github.com:grammaton/dibi-bib.git

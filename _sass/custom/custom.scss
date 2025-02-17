@@ -1,0 +1,90 @@
+.epigraph {
+    font-style: italic;
+    text-align: right;
+    margin: 2em 0;
+    max-width: 60%;
+    margin-left: auto;
+}
+
+.epigraph p {
+    margin: 0; /* rimuove il margin di default */
+    line-height: 1.5; /* o il valore che preferisci */
+}
+
+.epigraph footer {
+    margin-top: 0.5em;
+}
+
+.footnotes {
+    font-size: 0.9rem;  /* o qualsiasi dimensione desideri */
+    margin-top: 2em;    /* spazio prima della sezione footnote */
+}
+
+.footnote-ref {         /* per il numero in apice nel testo */
+    font-size: 0.8em;
+    vertical-align: super;
+}
+
+.footnote-backref {     /* per il simbolo ↩ che riporta al testo */
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.sidebar-footer {
+   font-style: italic;
+   text-align: right;
+   font-size: 0.75rem;      /* 12px se il root è 16px */
+   color: #666;             /* grigio medio per leggibilità */
+   line-height: 1.4;        /* spaziatura tra le righe */
+   padding: 1em;            /* padding interno */
+   font-weight: 300;        /* leggero */
+}
+
+
+.documents-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+
+  h1 {
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    color: #666;
+    margin: 20px 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: 10px 0;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .date {
+        color: #999;
+        margin-left: 10px;
+      }
+
+      .tags {
+        color: #666;
+        margin-left: 10px;
+        font-size: 0.9em;
+      }
+    }
+  }
+}
