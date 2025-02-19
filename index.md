@@ -12,12 +12,12 @@ nav_order: 1
 
 allunga lo sguardo, c'è un Porto all'orizzonte, puoi, costruire la tua [darsena].
 
-# ```bash
+<!-- ```bash
 # git clone --recursive git@github.com:grammaton/darsena.git
 # cd darsena
 # ```
 
-# Alcuni `submodules` sono privati, può accedere solamente chi può accedere.
+# Alcuni `submodules` sono privati, può accedere solamente chi può accedere.-->
 
 ## armatore
 
@@ -44,3 +44,4 @@ Una guida passo passo per la gestione del Porto [la trovi qui].
 [la trovi qui]: https://github.com/grammaton/darsena
 [parti da qui]: https://github.com/grammaton/bucintoro/generate
 [darsena]: https://github.com/new?template_name=darsena-template&template_owner=portomorto
+
