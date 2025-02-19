@@ -10,19 +10,21 @@ nav_order: 1
 
 ## approdo sicuro
 
-```bash
-git clone --recursive git@github.com:grammaton/darsena.git
-cd darsena
-```
+allunga lo sguardo, c'è un Porto all'orizzonte, puoi, costruire la tua [darsena].
 
-Alcuni `submodules` sono privati, può accedere solamente chi può accedere.
+# ```bash
+# git clone --recursive git@github.com:grammaton/darsena.git
+# cd darsena
+# ```
 
-Una guida passo passo per la gestione del Porto [la trovi qui].
+# Alcuni `submodules` sono privati, può accedere solamente chi può accedere.
 
 ## armatore
 
 Per creare una nuova nave dell'arsenale [parti da qui], poi aggiungi il nuovo
 elemento come `submodule` in `arsenale`.
+
+Una guida passo passo per la gestione del Porto [la trovi qui].
 
 ----
 
@@ -41,3 +43,4 @@ elemento come `submodule` in `arsenale`.
 [^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
 [la trovi qui]: https://github.com/grammaton/darsena
 [parti da qui]: https://github.com/grammaton/bucintoro/generate
+[darsena]: https://github.com/new?template_name=darsena-template&template_owner=portomorto
