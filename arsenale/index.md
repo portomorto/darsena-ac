@@ -6,7 +6,10 @@ last_modified_date: 2025-02-04 12:26:00 CET
 ---
 
 {: .glossario }
-{{ site.data.glossario.arsenale }}
+{{ site.data.squero.glossario.arsenale }}
+
+{: .glossario }
+{{ site.data.squero.glossario.bucintoro }}
 
 <!-- {: .glossario }
 {{ site.data.glossario.bucintoro }} -->

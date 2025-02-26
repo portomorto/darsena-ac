@@ -6,7 +6,7 @@ nav_order: 1
 ---
 
 {: .glossario }
-{{ site.data.glossario.darsena }}
+{{ site.data.squero.glossario.darsena }}
 
 ## approdo sicuro
 
