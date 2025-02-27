@@ -6,7 +6,7 @@ nav_order: 1
 ---
 
 {: .glossario }
-{{ site.data.glossario.darsena }}
+{{ site.data.squero.glossario.darsena }}
 
 ## approdo sicuro
 
@@ -44,4 +44,3 @@ Una guida passo passo per la gestione del Porto [la trovi qui].
 [la trovi qui]: https://github.com/grammaton/darsena
 [parti da qui]: https://github.com/grammaton/bucintoro/generate
 [darsena]: https://github.com/new?template_name=darsena-template&template_owner=portomorto
-

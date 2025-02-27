@@ -1,0 +1,337 @@
+---
+layout: default
+---
+
+{% assign termine_id = page.title %}
+{% assign t = site.data.bacino-di-carenaggio[termine_id] %}
+
+<h1>{{ t.termine.greco }} ({{ t.termine.traslitterazione }})</h1>
+
+{% if t.termine.pronuncia %}
+<p>Pronuncia: {{ t.termine.pronuncia }}</p>
+{% endif %}
+
+{% if t.termine.plurale %}
+<p>Plurale: {{ t.termine.plurale }} ({{ t.termine.traslitterazione_plurale }})</p>
+{% endif %}
+
+{% if t.etimologia %}
+<h2>Etimologia</h2>
+
+<ul>
+  {% for item in t.etimologia %}
+    {% unless item[0] contains "correlati_ie" %}
+      <li><strong>{{ item[0] | replace: "_", " " | capitalize }}</strong>: {{ item[1] }}</li>
+    {% endunless %}
+  {% endfor %}
+</ul>
+
+  {% if t.etimologia.correlati_ie %}
+    <h3>Correlati indoeuropei</h3>
+    <ul>
+    {% for correlato in t.etimologia.correlati_ie %}
+      <li><strong>{{ correlato.lingua | capitalize }}</strong>: {{ correlato.termine }} - {{ correlato.significato }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endif %}
+
+{% if t.definizioni %}
+<h2>Definizioni</h2>
+
+{% for def in t.definizioni %}
+  {% if def.tipo %}
+    <h3>{{ def.tipo | capitalize }}</h3>
+  {% endif %}
+
+  {% if def.significato.first %}
+    <ul>
+    {% for sig in def.significato %}
+      <li>{{ sig }}</li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>{{ def.significato }}</p>
+  {% endif %}
+
+  {% if def.contesto %}
+    <p><strong>Contesto:</strong> {{ def.contesto }}</p>
+  {% endif %}
+
+  {% if def.voce_media %}
+    <p><strong>Forma media:</strong> {{ def.voce_media }}</p>
+
+    {% if def.significato_medio.first %}
+      <p><strong>Significato della forma media:</strong></p>
+      <ul>
+      {% for sig in def.significato_medio %}
+        <li>{{ sig }}</li>
+      {% endfor %}
+      </ul>
+    {% elsif def.significato_medio %}
+      <p><strong>Significato della forma media:</strong> {{ def.significato_medio }}</p>
+    {% endif %}
+  {% endif %}
+
+  {% if def.uso_plurale %}
+    <p><strong>Uso del plurale:</strong> {{ def.uso_plurale }}</p>
+  {% endif %}
+
+  {% if def.declinazione %}
+    <h4>Declinazione</h4>
+    <ul>
+    {% for decl in def.declinazione %}
+      <li><strong>{{ decl[0] | capitalize }}</strong>: {{ decl[1] }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endfor %}
+{% endif %}
+
+{% if t.morfologia %}
+<h2>Morfologia</h2>
+
+<ul>
+{% for item in t.morfologia %}
+  {% unless item[0] contains "forme_dialettali" %}
+    <li><strong>{{ item[0] | replace: "_", " " | capitalize }}</strong>: {{ item[1] }}</li>
+  {% endunless %}
+{% endfor %}
+</ul>
+
+{% if t.morfologia.forme_dialettali %}
+<h3>Forme dialettali</h3>
+<ul>
+{% for forma in t.morfologia.forme_dialettali %}
+  <li><strong>{{ forma.dialetto | capitalize }}</strong>: {{ forma.forma }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endif %}
+
+{% if t.importanza_filosofica %}
+<h2>Importanza filosofica</h2>
+
+<ul>
+{% for item in t.importanza_filosofica %}
+  <li>
+    <strong>{{ item.autore }}</strong>:
+    {% if item.concetto %}{{ item.concetto }}.{% endif %}
+    {% if item.opera %} Opera: <em>{{ item.opera }}</em>.{% endif %}
+    {% if item.citazione %} Citazione: "<em>{{ item.citazione }}</em>"{% endif %}
+    {% if item.traduzione %} ({{ item.traduzione }}){% endif %}
+    {% if item.spiegazione %} {{ item.spiegazione }}{% endif %}
+    {% if item.contesto %} {{ item.contesto }}{% endif %}
+  </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.derivati.greco_antico or t.derivati_diretti or t.derivati_composti %}
+<h2>Termini derivati in greco antico</h2>
+
+{% if t.derivati_diretti %}
+<h3>Derivati diretti</h3>
+<ul>
+{% for derivato in t.derivati_diretti %}
+  <li><strong>{{ derivato.termine }}</strong> <em>({{ derivato.traslitterazione }})</em> — {{ derivato.significato }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.derivati_composti %}
+<h3>Derivati composti</h3>
+<ul>
+{% for derivato in t.derivati_composti %}
+  <li><strong>{{ derivato.termine }}</strong> <em>({{ derivato.traslitterazione }})</em> — {{ derivato.significato }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.derivati.greco_antico %}
+<h3>Altri derivati</h3>
+<ul>
+{% for derivato in t.derivati.greco_antico %}
+  <li><strong>{{ derivato.termine }}</strong> <em>({{ derivato.traslitterazione }})</em> — {{ derivato.significato }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endif %}
+
+{% if t.derivati.lingue_moderne or t.derivati_moderni %}
+<h2>Termini moderni derivati</h2>
+
+<ul>
+{% assign moderni = t.derivati.lingue_moderne | default: t.derivati_moderni %}
+{% for derivato in moderni %}
+  <li>
+    <strong>{{ derivato.termine }}</strong> <em>({{ derivato.lingua }})</em> —
+    {% if derivato.significato_moderno %}
+      {{ derivato.significato_moderno }}
+    {% elsif derivato.significato %}
+      {{ derivato.significato }}
+    {% endif %}
+    {% if derivato.etimologia %} {{ derivato.etimologia }}{% endif %}
+  </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.evoluzione_semantica %}
+<h2>Evoluzione semantica</h2>
+<ul>
+{% for evoluzione in t.evoluzione_semantica %}
+  <li><strong>{{ evoluzione.periodo }}</strong>: {{ evoluzione.significato }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.evoluzione_concettuale %}
+<h2>Evoluzione concettuale</h2>
+<ul>
+{% for evoluzione in t.evoluzione_concettuale %}
+  <li><strong>{{ evoluzione.periodo }}</strong>: {{ evoluzione.concetto }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.contrasti_concettuali %}
+<h2>Contrasti concettuali</h2>
+<ul>
+{% for contrasto in t.contrasti_concettuali %}
+  <li><strong>{{ contrasto.termine_contrastante }}</strong> ({{ contrasto.significato }}): {{ contrasto.relazione }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.uso_scientifico %}
+<h2>Utilizzo scientifico</h2>
+<ul>
+{% for uso in t.uso_scientifico %}
+  <li><strong>{{ uso.ambito }}</strong>: {{ uso.uso }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.uso_filosofico %}
+<h2>Uso filosofico</h2>
+<ul>
+{% for uso in t.uso_filosofico %}
+  <li><strong>{{ uso.autore }}</strong>: {{ uso.contesto }}{% if uso.opera %} (<em>{{ uso.opera }}</em>){% endif %}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.riferimenti_letterari %}
+<h2>Riferimenti letterari</h2>
+<ul>
+{% for rif in t.riferimenti_letterari %}
+  <li><strong>{{ rif.autore }}</strong>, <em>{{ rif.opera }}</em>: {{ rif.contesto }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.uso_in_psicologia %}
+<h2>Uso in psicologia</h2>
+<ul>
+{% for uso in t.uso_in_psicologia %}
+  <li>{{ uso.concetto }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.relazioni_semantiche %}
+<h2>Relazioni semantiche</h2>
+{% if t.relazioni_semantiche.termini_correlati %}
+<h3>Termini correlati</h3>
+<ul>
+{% for termine in t.relazioni_semantiche.termini_correlati %}
+  <li>
+    <strong>{{ termine.termine }}</strong> <em>({{ termine.traslitterazione }})</em>
+    {% if termine.relazione %} - {{ termine.relazione }}{% endif %}
+    {% if termine.significato %} - {{ termine.significato }}{% endif %}
+  </li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endif %}
+
+{% if t.termini_moderni_derivati %}
+<h2>Termini moderni derivati</h2>
+<ul>
+{% for termine in t.termini_moderni_derivati %}
+  <li>
+    <strong>{{ termine.termine }}</strong> <em>({{ termine.lingua }})</em>
+    {% if termine.significato_moderno %} - {{ termine.significato_moderno }}{% endif %}
+    {% if termine.evoluzione_semantica %} - {{ termine.evoluzione_semantica }}{% endif %}
+  </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.campo_semantico %}
+<h2>Campo semantico</h2>
+<ul>
+{% for campo in t.campo_semantico %}
+  <li>{{ campo }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.eredita_culturale %}
+<h2>Eredità culturale</h2>
+<ul>
+{% for eredita in t.eredita_culturale %}
+  <li>{% if eredita.ambito %}<strong>{{ eredita.ambito }}</strong>: {% endif %}{{ eredita.impatto }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.concetti_associati %}
+<h2>Concetti associati</h2>
+<ul>
+{% for concetto in t.concetti_associati %}
+  <li>{{ concetto }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.note_culturali %}
+<h2>Note culturali</h2>
+<ul>
+{% for nota in t.note_culturali %}
+  <li>{{ nota }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.note_semantiche %}
+<h2>Note semantiche</h2>
+<ul>
+{% for nota in t.note_semantiche %}
+  <li>{{ nota }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.note_linguistiche %}
+<h2>Note linguistiche</h2>
+<ul>
+{% for nota in t.note_linguistiche %}
+  <li>{{ nota }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if t.storia_del_referente %}
+<h2>Storia del referente</h2>
+<ul>
+{% for item in t.storia_del_referente %}
+  <li><strong>{{ item[0] | replace: "_", " " | capitalize }}</strong>: {{ item[1] }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<h2>Appunti di ricerca</h2>
+
+{{ content }}

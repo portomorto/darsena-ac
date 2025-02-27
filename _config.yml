@@ -2,8 +2,8 @@ theme: just-the-docs
 title: Porto Morto
 description: cadere sette volte, rialzarsi otto
 baseurl: "/portomorto" # the subpath of your site, e.g. /blog
-url: "grammaton.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-repository: grammaton/darsena # for github-metadata
+#url: "grammaton.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+repository: portomorto/darsena-ac # for github-metadata
 
 aux_links:
   FAUST: http://127.0.0.1:8000/dist/
@@ -29,13 +29,13 @@ plugins:
 
 sass:
   sass_dir: _sass
-  
+
 callouts:
   glossario:
     title: Glossario
     color: purple
 
-footer_content: 'Giuseppe Silvi'
+footer_content: 'Alice Cortegiani'
 
 # Footer last edited timestamp
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
@@ -49,7 +49,7 @@ scholar:
   style: apa
   locale: it
 
-  sort_by: none
+  sort_by: name
   order: ascending
 
   source: ./sottomarini/dibi-bib/
@@ -59,23 +59,11 @@ scholar:
   replace_strings: true
   join_strings:    true
 
-  details_dir:    bibliography
-  details_layout: bibtex.html
-  details_link:   Details
+  # details_dir:    bibliography
+  # details_layout: bibtex.html
+  # details_link:   Details
 
   query: "@*"
-
-pdf_naming:
-  pattern: ':year-:author_surname-:category-:title'
-  sanitize: true
-
-pdf_generation:
-  enabled: true
-  projects:
-    - name: metafisica
-      title: "Metafisica del Suono"
-    - name: pto
-      title: "Pensare Tetraedrico Oggi"
 
 collections:
   cartografie:
