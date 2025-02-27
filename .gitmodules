@@ -13,6 +13,6 @@
 [submodule "acquaalta/libri"]
 	path = acquaalta/libri
 	url = git@github.com:portomorto/libri.git
-[submodule "bacino-di-carenaggio"]
-	path = bacino-di-carenaggio
+[submodule "_data/bacino-di-carenaggio"]
+	path = _data/bacino-di-carenaggio
 	url = git@github.com:portomorto/bacino-di-carenaggio.git
