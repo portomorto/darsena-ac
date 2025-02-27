@@ -2,6 +2,7 @@
 
 require 'yaml'
 require 'fileutils'
+require 'pdf-reader'
 
 module Jekyll
   class PdfPreprocessor < Generator
@@ -82,19 +83,20 @@ module Jekyll
     end
 
     def create_markdown_file(pdf_path, md_path)
-      filename = File.basename(pdf_path, '.pdf')
-      year, authors, title = parse_filename(filename)
+      reader = PDF::Reader.new(pdf_path)
+      info = reader.info
 
-      # Crea un array di autori
-      author_list = authors ? [{'surname' => authors}] : [{'surname' => 'Cognome'}]
+      title = info[:Title] || File.basename(pdf_path, '.pdf')
+      authors = info[:Author] ? [{'surname' => info[:Author]}] : [{'surname' => 'Cognome'}]
+      year = info[:CreationDate] ? Date.parse(info[:CreationDate]).year.to_s : Time.now.year.to_s
 
       frontmatter = {
         'layout' => 'document',
-        'title' => title || 'Titolo del documento',
-        'authors' => author_list,
-        'category' => 'Categoria',
-        'date' => year.to_s || Time.now.year.to_s,
-        'tags' => ['tag1', 'tag2'],
+        'title' => title,
+        'authors' => authors,
+        'date' => year,
+        'category' => '',
+        'tags' => [],
         'pdf_path' => "/#{pdf_path}",
         'parent' => 'Biblioteca'
       }

@@ -8,6 +8,7 @@ gem 'git'
 gem 'faraday-retry'
 gem "kramdown-parser-gfm"
 gem "kramdown"
+gem 'pdf-reader'
 
 group :jekyll_plugins do
 gem "jekyll-scholar"

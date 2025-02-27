@@ -49,7 +49,7 @@ scholar:
   style: apa
   locale: it
 
-  sort_by: none
+  sort_by: name
   order: ascending
 
   source: ./sottomarini/dibi-bib/
@@ -59,9 +59,9 @@ scholar:
   replace_strings: true
   join_strings:    true
 
-  details_dir:    bibliography
-  details_layout: bibtex.html
-  details_link:   Details
+  # details_dir:    bibliography
+  # details_layout: bibtex.html
+  # details_link:   Details
 
   query: "@*"
 
