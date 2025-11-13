@@ -19,3 +19,6 @@
 [submodule "cantiere"]
 	path = cantiere
 	url = git@github.com:portomorto/cantiere.git
+[submodule "arsenale/lunario"]
+	path = arsenale/lunario
+	url = git@github.com:Metabolismo/lunario.git

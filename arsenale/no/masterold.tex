@@ -1,0 +1,135 @@
+%!TEX encoding = UTF-8 Unicode
+\documentclass[11pt,a4paper]{book}
+
+%----------------------------------------------------------------------------------------
+% PACKAGES AND CONFIGURATION
+%----------------------------------------------------------------------------------------
+\usepackage{import}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{titlesec}  % For custom chapter formatting
+\usepackage{tocloft}   % For table of contents formatting
+\usepackage{geometry}  % For page margins
+\usepackage{setspace}  % For line spacing
+
+% Custom spacing for parts
+\titleformat{\part}[display]
+    {\normalfont\huge\bfseries\centering}
+    {\partname\space\thepart}
+    {20pt}
+    {\Huge}
+
+% Custom spacing for chapters
+\titleformat{\chapter}[display]
+    {\normalfont\huge\bfseries}
+    {\chaptername\space\thechapter}
+    {20pt}
+    {\Huge}
+
+% Adjust spacing in table of contents
+\setlength{\cftbeforepartskip}{2em}
+\setlength{\cftbeforechapskip}{0.5em}
+
+% Page geometry
+\geometry{
+    paper=a4paper,
+    inner=2.5cm,
+    outer=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+% Define tightlist command
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%----------------------------------------------------------------------------------------
+% DOCUMENT START
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% Front matter
+\frontmatter
+\tableofcontents
+\clearpage
+
+% Include index
+\input{index}
+\clearpage
+
+% Start main content
+\mainmatter
+
+%----------------------------------------------------------------------------------------
+% PART 1: INTRODUZIONE
+%----------------------------------------------------------------------------------------
+\part{Introduzione}
+
+\chapter{Sulla Soglia}
+\input{0100sulla-soglia}
+
+\chapter{Luz, da Descrizione del Corpo}
+\input{0101luz}
+
+\chapter{Interpretazioni Storiche}
+\input{0102storico-interpretazioni}
+
+\chapter{Domenico Guaccero}
+\input{0103guaccero}
+
+%----------------------------------------------------------------------------------------
+% PART 2: ANALISI
+%----------------------------------------------------------------------------------------
+\part{Analisi}
+
+\chapter{Indice Analitico}
+\input{0200analisindex}
+
+\chapter{Principi Primi}
+\input{0201principiprimi}
+
+\chapter{Intuizione}
+\input{0202intuizione}
+
+\chapter{Comprensione}
+\input{0203comprensione}
+
+\chapter{Possibili}
+\input{0204possibili}
+
+\chapter{Processo}
+\input{0205processo}
+
+\chapter{Equilibrio}
+\input{0206equilibrio}
+
+\chapter{Abitare}
+\input{0207abitare}
+
+\chapter{Techne}
+\input{0208techne}
+
+\chapter{Fondamento}
+\input{0209fondamento}
+
+\chapter{Concreto}
+\input{0210conreto}
+
+%----------------------------------------------------------------------------------------
+% PART 3: APPROFONDIMENTI
+%----------------------------------------------------------------------------------------
+\part{Approfondimenti}
+
+\chapter{Il Superfluo}
+\input{0400superfluo}
+
+\chapter{Kabbalah}
+\input{0401kabbalah}
+
+\chapter{L'Angelo}
+\input{0402angelo}
+
+\end{document}
